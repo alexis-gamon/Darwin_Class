@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<a href="{% url 'curso_nuevo' %}">  <button type="button" class="btn btn-info">CursoNuevo</button>    </a >
+    
+{% for Curso in Todos_curso %}
+
+   
+  <div class="card" style="width: 28rem;">
+    
+    <div class="card-body">
+      
+      <h2 class="card-title">{{ Curso.Nombre}}</h2>
+      <p class="card-text">{{ Curso.Descripcion}}</p>
+      <p class="card-text"><small class="text-muted"> autor:{{ Curso.autor}}</small></p>
+     </div>
+    <ul class="list-group list-group-flush">
+     
+     
+     
+      {% for comentario in curso.comentarios.all %}
+     
+      <li class="list-group-item"> {{comentario.autor}} escribio: {{comentario}}</li>
+
+     {% endfor %}
+    </ul>
+    <div class="card-body">
+      <a href="{% url 'curso_detalle' curso.pk %}"> <button type="button" class="btn btn-info">Detalle</button>    </a>
+    
+    </div>
+  </div>
+
+  
+  
+
+  {% endfor %}
+{% endblock %}

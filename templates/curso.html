@@ -1,0 +1,24 @@
+<h1> <h1 style="color: blueviolet;">
+
+    <center> Curso </center>
+    </h1>
+    
+    {% extends 'base.html' %}
+    
+    {% block content %}
+    <!--
+      <a href="{% url 'curso_nuevo' %}">  <button type="button" class="btn btn-info">CursoNuevo</button>    </a >
+    <br>  
+    -->
+    
+    
+    {% for curso in Todos_curso %}
+    
+    <a href="{% url 'curso_detalle' Curso.pk %}" >{{curso}}  </a>
+    <p>{{Curso.Nombre}}</p>
+
+
+    {% endfor %}
+    
+    
+    {% endblock content %}

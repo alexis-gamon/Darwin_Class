@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<a href="{% url 'curso_nuevo' %}">  <button type="button" class="btn btn-info">CursoNuevo</button>    </a >
+    
+{% for curso in lista_curso %}
+
+   
+  <div class="card" style="width: 18rem;">
+    <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" class="card-img-top" alt="...">
+   
+    <div class="card-body">
+      
+      <h2 class="card-title">Nombre:{{ curso.Nombre}}</h2>
+      <h3><p class="card-text">{{ curso.Descripcion}}</p> </31>
+      <p class="card-text"><small class="text-muted"> autor:{{ curso.Creador}}</small></p>
+     </div>
+    <ul class="list-group list-group-flush">
+     
+     <!--hacemos que los comentarios dejen de aparecer en la pagina inicial del curso
+
+         {% for comentario in curso.comentarios.all %}
+     
+      <li class="list-group-item"> {{comentario.autor}} escribio: {{comentario}}</li>
+
+     {% endfor %}
+     -->
+     
+    
+    </ul>
+    <div class="card-body">
+      <a href="{% url 'curso_detalle' curso.pk %}"> <button type="button" class="btn btn-info">Detalle</button>    </a>
+    
+    </div>
+  </div>
+
+  
+  
+
+  {% endfor %}
+{% endblock %}
