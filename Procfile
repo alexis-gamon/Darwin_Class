@@ -1,0 +1,1 @@
+web: gunicorn darwin_class.wsgi --log-file -
